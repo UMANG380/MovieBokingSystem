@@ -32,7 +32,7 @@ public class MyApplication {
 		java.util.Date showEndTimeSM22 = sdf1.parse("21:00:00");
 		java.util.Date showStartTimeSM23 = sdf1.parse("19:05:00");
 		java.util.Date showEndTimeSM23 = sdf1.parse("22:00:00");
-		// java.util.Date movieDate = sdf.parse("2019-09-11");
+		
 		Map<Date, List<String>> hashmap = new HashMap<Date, List<String>>();
 		Map<Date, List<String>> hashmap1 = new HashMap<Date, List<String>>();
 		ArrayList<Show> listofShowsMovie1 = new ArrayList<Show>();
@@ -93,6 +93,7 @@ public class MyApplication {
 			System.out.println("1. Admin");
 			System.out.println("2. Registered User");
 			System.out.println("3. Unregistered User");
+			System.out.println("4. Quit");
 			System.out.println("Enter the type of User you are: ");
 			int choice = scanner.nextInt();
 			switch (choice) {
@@ -111,9 +112,8 @@ public class MyApplication {
 
 				case 1:
 					// show theater list
-					System.out.println("hey");
-					System.out.println(service.getTheatres());
-					
+		
+					System.out.println(service.getTheatres());			
 					System.out.println("Enter The Theater Id to which you want to add movie: ");
 					int theaterid = scanner.nextInt();
 					// method call with theater Id
@@ -200,9 +200,9 @@ public class MyApplication {
 
 			case 2:
 				System.out.println("1. Login");
-				System.out.println("2. book tickets");
-				System.out.println("3. cancel tickets");
-				System.out.println("4. cancel tickets");
+				System.out.println("2. Book tickets");
+				System.out.println("3. Cancel tickets");
+				System.out.println("4. Quit");
 				System.out.println("Enter Your choice: ");
 				int userChoice = scanner.nextInt();
 				switch (userChoice) {
@@ -273,6 +273,8 @@ public class MyApplication {
 					System.out.println("Select Show");
 					// method call to book show
 					break;
+				case 4:
+					exit();
 
 				}
 				break;
@@ -280,13 +282,14 @@ public class MyApplication {
 			case 3:
 				System.out.println("1. Register");
 				System.out.println("2. View Movies Shows");
+				System.out.println("3. Quit");
 				int viewerChoice = scanner.nextInt();
 				switch (viewerChoice) {
 
 				case 1:
 					System.out.println("Enter Your name");
 					System.out.println("Enter your contact");
-					System.out.println("Enter your email address");
+					
 					System.out.println("Enter the password");
 					System.out.println("Confirm password");
 					break;
@@ -304,6 +307,8 @@ public class MyApplication {
 					// print show for that movie id in this theater id by fetching theater id from
 					// theater name
 					break;
+				case 3: 
+					exit(1);
 				}
 				break;
 			}
