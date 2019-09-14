@@ -286,7 +286,7 @@ public class MyApplication {
 				case 1:
 					System.out.println("Enter Your name");
 					System.out.println("Enter your contact");
-					
+					System.out.println("Enter your email address");
 					System.out.println("Enter the password");
 					System.out.println("Confirm password");
 					break;
