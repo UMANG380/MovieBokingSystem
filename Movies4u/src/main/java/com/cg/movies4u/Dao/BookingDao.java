@@ -1,5 +1,5 @@
 package com.cg.movies4u.Dao;
 
-public class BookingDao {
+public interface BookingDao {
 
 }

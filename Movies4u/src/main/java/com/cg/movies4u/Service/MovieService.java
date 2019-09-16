@@ -1,5 +1,5 @@
 package com.cg.movies4u.Service;
 
-public class MovieService {
+public interface MovieService {
 
 }

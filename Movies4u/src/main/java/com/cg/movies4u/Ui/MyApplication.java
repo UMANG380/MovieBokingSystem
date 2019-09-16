@@ -8,12 +8,13 @@ import com.cg.movies4u.Service.*;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Map.Entry;
 
 public class MyApplication {
 
 	public static void main(String[] args) throws Exception {
 
-		ITheatreService service = new TheatreService();
+		TheatreService service = new TheatreServiceImpl();
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		java.util.Date releaseDate = sdf.parse("2019-06-28");
@@ -170,7 +171,7 @@ public class MyApplication {
 					break;
 				case 4:
 					// show list of movies
-					List<Map.Entry<Integer, Theatre>> theatres = new ArrayList<>(service.getTheatres().entrySet());
+					List<Map.Entry<Integer, Theatre>> theatres = new ArrayList<Entry<Integer, Theatre>>(service.getTheatres().entrySet());
 					for (int i = 0; i < theatres.size(); i++) {
 						System.out.println(theatres.get(i).getValue());
 					}
@@ -178,7 +179,7 @@ public class MyApplication {
 					service.deleteTheatre(scanner.nextInt());
 					break;
 				case 5:
-					List<Map.Entry<Integer, String>> cities = new ArrayList<>(service.getCities().entrySet());
+					List<Map.Entry<Integer, String>> cities = new ArrayList<Entry<Integer, String>>(service.getCities().entrySet());
 					for (int i = 0; i < cities.size(); i++) {
 						System.out.println(cities.get(i).getKey() + " " + cities.get(i).getValue());
 					}
@@ -186,7 +187,7 @@ public class MyApplication {
 				case 6:
 					// show list of Theaters(optional to show movies in each theaters)
 					Map<Integer, Theatre> theatresm = service.getTheatres();
-					List<Map.Entry<Integer, Theatre>> theatreList = new ArrayList<>(theatresm.entrySet());
+					List<Map.Entry<Integer, Theatre>> theatreList = new ArrayList<Entry<Integer, Theatre>>(theatresm.entrySet());
 					for (int i = 0; i < theatreList.size(); i++) {
 						System.out.println(theatreList.get(i).getValue());
 					}
@@ -211,7 +212,7 @@ public class MyApplication {
 					System.out.println("Enter the UserId: ");
 					System.out.println("Enter the Password: ");
 				case 2:
-					List<Map.Entry<Integer, String>> cities = new ArrayList<>(service.getCities().entrySet());
+					List<Map.Entry<Integer, String>> cities = new ArrayList<Entry<Integer, String>>(service.getCities().entrySet());
 					for (int i = 0; i < cities.size(); i++) {
 						System.out.println(cities.get(i).getKey() + " " + cities.get(i).getValue());
 					}
@@ -240,7 +241,7 @@ public class MyApplication {
 						}
 						System.out.println("Enter show id");
 						Integer showId = scanner.nextInt();
-						List<String> seats = new ArrayList<>(3);
+						List<String> seats = new ArrayList<String>(3);
 						String date = (scanner.next());
 						for (int i = 0; i < 3; i++) {
 							seats.add(scanner.next());
@@ -274,7 +275,7 @@ public class MyApplication {
 					// method call to book show
 					break;
 				case 4:
-					exit();
+					exit(userChoice);
 
 				}
 				break;
